@@ -15,17 +15,18 @@ protected:
 
 public:
     int dimension = DIMENSION;
+
+
     Point();
     template <typename... Args>
     Point(Args... arg);
     ~Point();
+
+    const double& operator[](size_t pos)const;
 };
 
-Point::Point()
-{
-    memset(coordinate, 0, DIMENSION * sizeof(double));
-}
 
+/************************ 私有函数 *************************/
 void Point::unpick(double *array, double x)
 {
     *array = x;
@@ -37,6 +38,16 @@ void Point::unpick(double *array, double x, Args... args)
     *array = x;
     unpick(++array, args...);
 }
+
+
+
+/************************* 构造函数 ************************/
+
+Point::Point()
+{
+    memset(coordinate, 0, DIMENSION * sizeof(double));
+}
+
 template <typename... Args>
 Point::Point(Args... args)
 {
@@ -49,9 +60,18 @@ Point::Point(Args... args)
         unpick(coordinate, args...);
     }
 }
-
+/************************** 析构函数 ***********************/
 Point::~Point()
 {
 }
 
+
+/************************** 公有函数 ***********************/
+
+const double& Point::operator[](size_t pos)const 
+{
+    if(pos<0||pos>=dimension)
+        throw std::exception("Index Crossing Borders");
+    return coordinate[pos];
+}
 #endif
