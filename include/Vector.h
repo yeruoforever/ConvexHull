@@ -8,11 +8,30 @@ private:
     /* data */
 public:
     Vector();
+    Vector(const Point& begin,const Point& end);
     template <typename... Args>
     Vector(Args... args);
     ~Vector();
     double magnitude();
+    double det();
 };
+
+Vector::Vector(const Point& begin,const Point& end)
+{
+    if(begin.dimension!=end.dimension)
+    {
+        throw std::exception("the dimension of start point and end point must be same");
+    }
+    else
+    {
+        dimension=begin.dimension;
+        for(int i=0;i<dimension;i++)
+        {
+            coordinate[i]=end.coordinate[i]-begin.coordinate[i];
+        }
+    }
+}
+
 
 Vector::Vector()
 {

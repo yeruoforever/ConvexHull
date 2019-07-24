@@ -3,19 +3,19 @@
 #include <cstring>
 #include <iostream>
 
-#define DIMENSION 2
+#define MAX_DIMENSION 2
 
 class Point
 {
 protected:
-    double coordinate[DIMENSION];
+
     void unpick(double *array, double x);
     template <typename... Args>
     void unpick(double *array, double x, Args... args);
 
 public:
-    int dimension = DIMENSION;
-
+    int dimension = MAX_DIMENSION;
+    double coordinate[MAX_DIMENSION];
 
     Point();
     template <typename... Args>
@@ -45,7 +45,7 @@ void Point::unpick(double *array, double x, Args... args)
 
 Point::Point()
 {
-    memset(coordinate, 0, DIMENSION * sizeof(double));
+    memset(coordinate, 0, MAX_DIMENSION * sizeof(double));
 }
 
 template <typename... Args>
@@ -53,7 +53,7 @@ Point::Point(Args... args)
 {
     Point();
     int len = sizeof...(args);
-    if (len != DIMENSION)
+    if (len != MAX_DIMENSION)
         throw std::exception("Dimension error");
     else
     {
