@@ -2,7 +2,7 @@
 
 #include "Point.h"
 
-class Vector : protected Point
+class Vector : public Point
 {
 private:
     /* data */
