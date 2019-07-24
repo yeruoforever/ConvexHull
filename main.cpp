@@ -10,6 +10,5 @@ int main()
     cout<<v.magnitude()<<endl;
     cout<<v[1]<<endl;
     system("pause");
-    
     return 0;
 }
