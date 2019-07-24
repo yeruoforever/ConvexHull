@@ -1,6 +1,6 @@
 #ifndef H_VECTOR
 
-#include "Point.h"
+#include "./Point.h"
 
 class Vector : public Point
 {
