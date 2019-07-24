@@ -2,7 +2,7 @@
 
 #include "Point.h"
 
-class Vector : public Point
+class Vector : protected Point
 {
 private:
     /* data */
@@ -13,7 +13,7 @@ public:
     Vector(Args... args);
     ~Vector();
     double magnitude();
-    double det();
+    double operator*(const Vector& x);
 };
 
 Vector::Vector(const Point& begin,const Point& end)
