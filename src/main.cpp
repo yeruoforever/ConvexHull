@@ -1,8 +1,7 @@
 #include <iostream>
 #include <stdlib.h>
-#include "Vector.h"
+#include "../include/Vector.h"
 using namespace std;
-
 
 int main()
 {
