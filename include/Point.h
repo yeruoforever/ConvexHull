@@ -22,7 +22,7 @@ public:
     Point(Args... arg);
     ~Point();
 
-    const double& operator[](size_t pos)const;
+    double& operator[](size_t pos);
 };
 
 
@@ -68,7 +68,7 @@ Point::~Point()
 
 /************************** 公有函数 ***********************/
 
-const double& Point::operator[](size_t pos)const 
+double& Point::operator[](size_t pos) 
 {
     if(pos<0||pos>=dimension)
         throw std::exception("Index Crossing Borders");
