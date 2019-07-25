@@ -14,6 +14,9 @@ int main()
                       {3, 0}, {0, 0}, {3, 3}}; 
     int n = sizeof(points)/sizeof(points[0]); 
     vector<Point> res=ConvexHull(points, n); 
-    cout<<res.size()<<endl;
+    for(int i=0;i<res.size();i++)
+    {
+        cout<<res[i]<<',';
+    }
     return 0;
 }

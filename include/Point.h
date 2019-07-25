@@ -26,6 +26,7 @@ public:
     ~Point();
 
     double& operator[](size_t pos);
+    friend ostream& operator<<(ostream& os, const Point& p);
 };
 
 
@@ -137,6 +138,16 @@ vector<Point> ConvexHull(Point points[],int n)
         p=q;
     }while(p!=mostLeftIndex);
     return result;
+}
+
+ostream& operator<<(ostream& os, const Point& p)
+{
+    os<<'(';
+    os<<p.coordinate[0];
+    for(int i=1;i<p.dimension;i++)
+        os<<','<<p.coordinate[i];
+    os<<")";
+    return os;
 }
 
 #endif
