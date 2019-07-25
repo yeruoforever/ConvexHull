@@ -113,7 +113,7 @@ int orient(const Point&a,const Point&b,const Point&c)
     }
 }
 
-vector<Point> ConvexHell(Point points[],int n)
+vector<Point> ConvexHull(Point points[],int n)
 {
     vector<Point> result;
     size_t mostLeftIndex=0;
