@@ -136,6 +136,7 @@ vector<Point> ConvexHell(Point points[],int n)
         }
         p=q;
     }while(p!=mostLeftIndex);
+    return result;
 }
 
 #endif
