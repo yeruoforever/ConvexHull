@@ -56,4 +56,16 @@ double Vector::magnitude()
     return sqrt(sum);
 }
 
+double Vector::operator*(const Vector&x)
+{
+    if(x.dimension!=dimension)
+        throw std::exception("dismatch the dimension");
+    double sum=0.;
+    for(int i=0;i<dimension;i++)
+    {
+        sum+=coordinate[i]+x.coordinate[i];
+    }
+    return sum;
+}
+
 #endif
