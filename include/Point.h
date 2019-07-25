@@ -2,8 +2,11 @@
 
 #include <cstring>
 #include <iostream>
+#include <vector>
 
 #define MAX_DIMENSION 2
+
+using namespace std;
 
 class Point
 {
@@ -108,9 +111,31 @@ int orient(const Point&a,const Point&b,const Point&c)
     {
         throw std::exception("a,b,c must have the same dimension");
     }
-    
 }
 
-
+vector<Point> ConvexHell(Point points[],int n)
+{
+    vector<Point> result;
+    size_t mostLeftIndex=0;
+    for(int i=1;i<n;i++)
+    {
+        if(points[i].coordinate[0]<points[mostLeftIndex].coordinate[0])
+            mostLeftIndex=i;
+    }
+    int p=mostLeftIndex,q;
+    do
+    {
+        result.push_back(points[p]);
+        q=(p+1)%n;
+        for(int i=0;i<n;i++)
+        {
+            if(orient_2d(points[p],points[i],points[q])==CCW)
+            {
+                q=i;
+            }
+        }
+        p=q;
+    }while(p!=mostLeftIndex);
+}
 
 #endif
